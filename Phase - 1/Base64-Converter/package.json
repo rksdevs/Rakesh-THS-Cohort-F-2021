@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "readline-sync": "^1.4.10"
+  },
+  "name": "base64-converter",
+  "description": "This is a text decoder. It can convert UTF-8 to Base64 and vice versa. This has been designed from scratch for CLI environment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
