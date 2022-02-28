@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "readline-sync": "^1.4.10"
+  },
+  "name": "number-converter",
+  "description": "This is CLI Program built from scratch where you can convert ASICC to Binary, octal or hexadecimal number system.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
