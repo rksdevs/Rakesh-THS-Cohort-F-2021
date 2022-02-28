@@ -1,0 +1,16 @@
+{
+  "name": "matrix-functions",
+  "version": "1.0.0",
+  "description": "This is a CLI program where you can perform various functions of matrixes like addition, substraction, multiplication etc. This is designed for CLI environment and is built from scratch.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "readline-sync": "^1.4.10"
+  },
+  "type": "module"
+}
