@@ -1,18 +1,15 @@
-function hollowTriangle(side) {
+function pyramid(side) {
   let starString = "";
   for (let i = 1; i <= side; i++) {
-    for (let j = 1; j <= i; j++) {
-      if (i === side) {
-        starString += "*";
-      } else if (j == 1 || j == i) {
-        starString += "*";
-      } else {
-        starString += " ";
-      }
+    for (let j = 1; j <= side - i; j++) {
+      starString += " ";
+    }
+    for (let k = 1; k <= 2 * i - 1; k++) {
+      starString += "*";
     }
     starString += "\n";
   }
   console.log(starString);
 }
 
-hollowTriangle(8);
+pyramid(5);
