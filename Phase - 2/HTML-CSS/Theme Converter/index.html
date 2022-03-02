@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+    <style>
+      .darkMode {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, dolorem?
+    </h1>
+    <p id="para">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero suscipit
+      expedita voluptas dicta sint fugit distinctio cupiditate, ullam id, minus
+      est laborum corrupti explicabo incidunt. Odio quam corporis dolore
+      voluptas!
+    </p>
+    <script>
+      let p = document.getElementById("para");
+      let body = document.body;
+      let x = document.createElement("h6");
+      let backG = document.createElement;
+      //   body.className("backG");
+      document.getElementsByClassName("backG").style =
+        "background-color:black; color:#fff";
+      //   p.remove();
+      //   body.replaceChild(x, p);
+      //   x.innerText = "Hello GM";
+      let btn = document.createElement("button");
+      btn.innerText = "Click For Dark Mode";
+      body.appendChild(btn);
+      //   btn.addEventListener("click", darkMode);
+      function darkMode() {
+        body.classList.toggle("darkMode");
+        if (btn.innerText === "Click For Dark Mode") {
+          btn.innerText = "Click For Light Mode";
+        } else {
+          btn.innerText = "Click For Dark Mode";
+        }
+        // btn.innerText = "Click For Light Mode";
+        // btn.addEventListener("click", lightMode);
+      }
+      //   function lightMode() {
+      //     //   body.style = "background-color:white;color:#000";
+      //     body.classList.toggle("darkMode");
+      //     btn.innerText = "Click For Dark Mode";
+      //     //   btn.addEventListener("click", darkMode);
+      //   }
+      //   darkMode();
+      //   lightMode();
+      btn.addEventListener("click", darkMode);
+      //   btn.addEventListener("click", lightMode);
+    </script>
+  </body>
+</html>

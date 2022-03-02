@@ -1,0 +1,1 @@
+This is a simple app where you can change the theme of the document by pressing the theme change button
