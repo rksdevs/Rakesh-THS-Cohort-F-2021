@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6em;
+  background-color: #fee9d7;
+}
+
+.heading {
+  font-size: 100%;
+}
+
+.heading h3 {
+  font-size: 2em;
+  font-weight: 800;
+}
+
+.heading h5 {
+  font-size: 2em;
+  margin: 1em;
+}
+
+button {
+  box-shadow: 0 0 10px #dc3545;
+}
+
+.heading-head,
+.main-footer {
+  text-shadow: 0 5px 10px black;
+}
+
+.clock-contents,
+.stopwatch-contents,
+.timer-contents {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.timer-contents p input {
+  width: 2.5em;
+  text-align: center;
+  background-color: #e2434b;
+  color: white;
+  outline: none;
+  border: 1px solid black;
+  box-shadow: 0 0 5px black;
+}
+
+.today-date {
+  font-weight: 700;
+}
+
+.main-container {
+  height: 100vh;
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+.main-header {
+  text-align: center;
+  margin: 10vh auto 5vh;
+}
+
+.main-content {
+  background-color: #e2434b;
+  height: 50vh;
+  padding: 2em;
+}
+.clock-segment {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.clock,
+.timer,
+.stopwatch {
+  background-color: #f9bf8f;
+  color: #34222e;
+  flex: 1;
+  text-align: center;
+  border: 1px solid #34222e;
+  box-shadow: 0 0 5px black;
+  padding: 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.main-footer {
+  text-align: center;
+  margin: 10vh auto 5vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .main-header {
+    text-align: center;
+    margin: 5vh auto 5vh;
+  }
+  .main-content {
+    background-color: #e2434b;
+    height: 200%;
+  }
+
+  .clock-segment {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .clock,
+  .timer,
+  .stopwatch {
+    margin: 1em 0;
+  }
+
+  .main-footer {
+    text-align: center;
+    margin: 5vh auto 5vh;
+  }
+}
+
+.timer-hidden {
+  display: none;
+}
