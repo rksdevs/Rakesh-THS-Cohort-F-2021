@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+  line-height: 1.6em;
+  background-color: #5169fb;
+}
+
+.main-wrapper {
+  margin-top: 25vh;
+}
+
+.main-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  text-align: center;
+}
+
+#heading-head {
+  color: white;
+  text-shadow: 5px 5px 5px black;
+}
+
+.main-content {
+  margin-top: 3em;
+}
+
+.work-field {
+  background: #fefdff54;
+  padding: 1em;
+  box-shadow: 0 0 15px #0000006e;
+  border-radius: 10px;
+}
+
+.inp-number {
+  margin-top: 2em;
+}
+
+.output-field {
+  margin-top: 2em;
+  display: flex;
+  gap: 1em;
+}
+
+.submit-btn {
+  flex: 1;
+  text-align: center;
+  align-self: center;
+}
+
+.out-number {
+  flex: 4;
+}
+
+#result {
+  font-size: inherit;
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+#convertBtn {
+  margin: 1px;
+}
+
+#resetBtn i {
+  font-size: 11px;
+  margin: auto 1px;
+}
+
+.main-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.main-footer h1 {
+  font-size: 1em;
+}
