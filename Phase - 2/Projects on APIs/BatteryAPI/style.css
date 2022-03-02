@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: 'Anton', sans-serif; */
+  font-family: "Oswald", sans-serif;
+  line-height: 1.6em;
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+
+.content-wrapper {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 5em;
+}
+
+header {
+  margin-top: 5em;
+  width: 100vw;
+  height: 10vh;
+  color: #504ee4;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+header > h1 {
+  font-size: xx-large;
+  padding: 2%;
+}
+
+.main-content {
+  margin-top: 2em;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 15px;
+  position: relative;
+  width: 250px;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.card-heading {
+  display: flex;
+  justify-content: space-around;
+  background-color: #493ae4;
+  padding: 1em;
+  border-radius: 10px 10px 0 0;
+  color: #fff;
+}
+
+.card-heading-name {
+  flex: 3;
+}
+
+.card-heading-name h3 {
+  font-size: 25px;
+}
+
+.card-heading-icon {
+  flex: 1;
+}
+
+.card-heading-icon p i {
+  font-size: 25px;
+}
+
+.card-content-main {
+  font-size: 40px;
+  position: absolute;
+  top: 116px;
+  left: 12%;
+  color: #201630;
+}
+
+#battery-percent {
+  font-size: 40px;
+}
+
+.card-content-details {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.card-content-details table tr td {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.card-content-details table {
+  margin: 0 auto;
+  width: 100%;
+  background: #493ae4;
+  color: white;
+  border-radius: 0 0 10px 10px;
+}
+
+.card-content-details table tr td {
+  border: 1px solid black;
+}
+
+footer {
+  margin-top: 5em;
+}
+
+.footer-main h4 {
+  font-size: xx-large;
+  color: #504ee4;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+#battery-img {
+  width: 85px;
+  height: 35px;
+  border: 1px solid black;
+  position: relative;
+  display: inline-block;
+}
+
+#battery-lvl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: #201630;
+  border: 0.5px solid #fff;
+}
+
+.battery-head {
+  position: absolute;
+  top: 12px;
+  right: -5px;
+  height: 10px;
+  width: 5px;
+  background-color: #201630;
+}

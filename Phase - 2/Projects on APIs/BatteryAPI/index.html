@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f54240c077.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Battery API</title>
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <header>
+        <h1>Battery Status API</h1>
+      </header>
+      <section class="main-content">
+        <div class="card">
+          <div class="card-heading">
+            <div class="card-heading-name">
+              <h3>Battery Status</h3>
+            </div>
+            <div class="card-heading-icon">
+              <p><i class="fas fa-bolt"></i></p>
+            </div>
+          </div>
+          <div class="card-content-main">
+            <h1>
+              <span id="battery-percent">100%</span>
+              <div id="battery-img">
+                <div class="battery-head"></div>
+                <div id="battery-lvl"></div>
+              </div>
+            </h1>
+          </div>
+          <div class="card-content-details">
+            <table>
+              <tr>
+                <td>Power Source</td>
+                <td id="powerSource">Adapter</td>
+              </tr>
+              <tr>
+                <td>Level Percentage</td>
+                <td id="battery-percent-t">100%</td>
+              </tr>
+              <tr>
+                <td>Fully Charged in</td>
+                <td id="charge-time">00:00</td>
+              </tr>
+              <tr>
+                <td style="border-radius: 0 0 0 10px">Remaining Time</td>
+                <td style="border-radius: 0 0 10px" id="discharge-time">---</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="footer-main">
+          <h4>by Rakesh with &#128148;</h4>
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
