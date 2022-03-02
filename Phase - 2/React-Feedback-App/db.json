@@ -1,0 +1,54 @@
+{
+  "feedback": [
+    {
+      "id": 1,
+      "rating": 10,
+      "text": "This is feedback item 1 coming from the backend"
+    },
+    {
+      "id": 2,
+      "rating": 9,
+      "text": "This is feedback item 2 coming from the backend"
+    },
+    {
+      "id": 3,
+      "rating": 8,
+      "text": "This is feedback item 3 coming from the backend"
+    },
+    {
+      "text": "This is an updated new item",
+      "rating": 7,
+      "id": 5
+    },
+    {
+      "text": "This is a new feedback",
+      "rating": 6,
+      "id": 6
+    },
+    {
+      "text": "This is a new feedback",
+      "rating": 4,
+      "id": 7
+    },
+    {
+      "text": "This is a new review with rating 7",
+      "rating": 7,
+      "id": 8
+    },
+    {
+      "text": "This is a new feedback",
+      "rating": 10,
+      "id": 9
+    },
+    {
+      "text": "This is a new feedback today",
+      "rating": 6,
+      "id": 10
+    },
+    {
+      "text": "this is a new 9 feedback",
+      "rating": 9,
+      "id": 11
+    }
+  ]
+}
