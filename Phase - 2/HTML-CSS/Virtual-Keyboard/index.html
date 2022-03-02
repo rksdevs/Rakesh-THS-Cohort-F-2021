@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/f54240c077.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Vitual Keyboard</title>
+  </head>
+  <body>
+    <div class="main-container container-fluid">
+      <header class="main-header">
+        <div class="heading-head">
+          <h1>VIRTUAL KEYBOARD</h1>
+        </div>
+      </header>
+      <section class="main-content container-sm">
+          <div class="screen">
+              <div class="text-area">
+                  <textarea name="text" id="text" ></textarea>
+              </div>
+          </div>
+        <div class="keyboard-layout">
+          <div class="keyboard-layout-left">
+            <div class="keyboard-key escape" id="escape" role="button"><p class="marginTop">Esc</p></div>
+            <div class="keyboard-key f1" id="F1" role="button" onclick="toTextArea(this)"><p class="marginTop">F1</p> </div>
+            <div class="keyboard-key f2"  id="F2" role="button" onclick="toTextArea(this)"><p class="marginTop">F2</p></div>
+            <div class="keyboard-key f3"  id="F3" role="button" onclick="toTextArea(this)"><p class="marginTop">F3</p></div>
+            <div class="keyboard-key f4"  id="F4" role="button" onclick="toTextArea(this)"><p class="marginTop">F4</p></div>
+            <div class="keyboard-key f5" id="F5" role="button" onclick="toTextArea(this)"><p class="marginTop">F5</p></div>
+            <div class="keyboard-key f6"  id="F6" role="button" onclick="toTextArea(this)"><p class="marginTop">F6</p></div>
+            <div class="keyboard-key f7"  id="F7" role="button" onclick="toTextArea(this)"><p class="marginTop">F7</p></div>
+            <div class="keyboard-key f8"  id="F8" role="button" onclick="toTextArea(this)"><p class="marginTop">F8</p></div>
+            <div class="keyboard-key f9"  id="F9" role="button" onclick="toTextArea(this)"><p class="marginTop">F9</p></div>
+            <div class="keyboard-key f10"  id="F10" role="button" onclick="toTextArea(this)"><p class="marginTop">F10</p></div>
+            <div class="keyboard-key f11"  id="F11" role="button" onclick="toTextArea(this)"><p class="marginTop">F11</p></div>
+            <div class="keyboard-key f12"  id="F12" role="button" onclick="toTextArea(this)"><p class="marginTop">F12</p></div>
+            <div class="keyboard-key tilda" id="tilda" role="button"onclick="toTextArea(this)"><p><span class = "span1">~</span><span>`</span></p></div>
+            <div class="keyboard-key 1"role="button"onclick="toTextArea(this)"><p><span class = "span1">!</span><span>1</span></p></div>
+            <div class="keyboard-key 2" role="button"onclick="toTextArea(this)"><p><span class = "span1">@</span><span>2</span></p></div>
+            <div class="keyboard-key 3" role="button"onclick="toTextArea(this)"><p><span class = "span1">#</span><span>3</span></p></div>
+            <div class="keyboard-key 4" role="button"onclick="toTextArea(this)"><p><span class = "span1">$</span><span>4</span></p></div>
+            <div class="keyboard-key 5" role="button"onclick="toTextArea(this)"><p><span class = "span1">%</span><span>5</span></p></div>
+            <div class="keyboard-key 6" role="button"onclick="toTextArea(this)"><p><span class = "span1">^</span><span>6</span></p></div>
+            <div class="keyboard-key 7" role="button"onclick="toTextArea(this)"><p><span class = "span1">&</span><span>7</span></p></div>
+            <div class="keyboard-key 8" role="button"onclick="toTextArea(this)"><p><span class = "span1">*</span><span>8</span></p></div>
+            <div class="keyboard-key 9" role="button"onclick="toTextArea(this)"><p><span class = "span1">(</span><span>9</span></p></div>
+            <div class="keyboard-key 0" role="button"onclick="toTextArea(this)"><p><span class = "span1">)</span><span>0</span></p></div>
+            <div class="keyboard-key negative" role="button"onclick="toTextArea(this)"><p><span class = "span1">-</span><span>_</span></p>
+            </div>
+            <div class="keyboard-key positive" role="button"onclick="toTextArea(this)"><p><span class = "span1">+</span><span>=</span></p>
+            </div>
+            <div class="keyboard-key backspace"  id="backSpace" role="button" onclick="backspace()"><p class="marginTop">Backspace</p></div>
+            <div class="keyboard-key tab" id="Tab" role="button" onclick="toTextArea(this)"><p class="marginTop">Tab</p></div>
+            <div class="keyboard-key Q" id="Q" role="button" onclick="toTextArea(this)"><p class="marginTop">Q</p></div>
+            <div class="keyboard-key W" id="W" role="button" onclick="toTextArea(this)"><p class="marginTop">W</p></div>
+            <div class="keyboard-key E"  id="E" role="button" onclick="toTextArea(this)"><p class="marginTop">E</p></div>
+            <div class="keyboard-key R"  id="R" role="button" onclick="toTextArea(this)"><p class="marginTop">R</p></div>
+            <div class="keyboard-key T"  id="T" role="button" onclick="toTextArea(this)"><p class="marginTop">T</p></div>
+            <div class="keyboard-key Y" id="Y" role="button" onclick="toTextArea(this)"><p class="marginTop">Y</p></div>
+            <div class="keyboard-key U" id="U" role="button" onclick="toTextArea(this)"><p class="marginTop">U</p></div>
+            <div class="keyboard-key I" id="I" role="button" onclick="toTextArea(this)"><p class="marginTop">I</p></div>
+            <div class="keyboard-key O" id="O" role="button" onclick="toTextArea(this)"><p class="marginTop">O</p></div>
+            <div class="keyboard-key P" id="P" role="button" onclick="toTextArea(this)"><p class="marginTop">P</p></div>
+            <div class="keyboard-key bracketO" role="button"onclick="toTextArea(this)"><p><span class = "span1">{</span><span>[</span></p>
+            </div>
+            <div class="keyboard-key brakcetC" role="button"onclick="toTextArea(this)"><p><span class = "span1">}</span><span>]</span></p>
+            </div>
+            <div class="keyboard-key slashF" role="button"onclick="toTextArea(this)"><p><span class = "span1">|</span><span>\</span></p></div>
+            <div class="keyboard-key capslock" id="CAPSLOCK" role="button" onclick="capslock()"><p class="marginTop">CAPSLOCK</p>
+            </div>
+            <div class="keyboard-key A" id="A" role="button" onclick="toTextArea(this)"><p class="marginTop">A</p></div>
+            <div class="keyboard-key S" id="s" role="button" onclick="toTextArea(this)"><p class="marginTop">S</p></div>
+            <div class="keyboard-key D" id="D" role="button" onclick="toTextArea(this)"><p class="marginTop">D</p></div>
+            <div class="keyboard-key F" id="F" role="button" onclick="toTextArea(this)"><p class="marginTop">F</p></div>
+            <div class="keyboard-key G" id="G" role="button" onclick="toTextArea(this)"><p class="marginTop">G</p></div>
+            <div class="keyboard-key H" id="H" role="button" onclick="toTextArea(this)"><p class="marginTop">H</p></div>
+            <div class="keyboard-key J" id="J" role="button" onclick="toTextArea(this)"><p class="marginTop">J</p></div>
+            <div class="keyboard-key K" id="K" role="button" onclick="toTextArea(this)"><p class="marginTop">K</p></div>
+            <div class="keyboard-key L" id="L" role="button"onclick="toTextArea(this)"><p class="marginTop">L</p></div>
+            <div class="keyboard-key colon" role="button"onclick="toTextArea(this)"><p><span class = "span1">:</span><span>;</span></p></div>
+            <div class="keyboard-key quotes" role="button"onclick="toTextArea(this)"><p><span class = "span1">"</span><span>'</span></p></div>
+            <div class="keyboard-key enter" id="ENTER" role="button" onclick="enter()"><p class="marginTop">Enter</p></div>
+            <div class="keyboard-key shiftL shift" id="SHIFT" role="button" onclick="capslock()">
+              <p class="marginTop"><i class="fas fa-arrow-up"></i> Shift</p>
+            </div>
+            <div class="keyboard-key Z" id="Z" role="button" onclick="toTextArea(this)"><p class="marginTop">Z</p></div>
+            <div class="keyboard-key X" id="X" role="button" onclick="toTextArea(this)"><p class="marginTop">X</p></div>
+            <div class="keyboard-key C" id="C" role="button" onclick="toTextArea(this)"><p class="marginTop">C</p></div>
+            <div class="keyboard-key V" id="V" role="button" onclick="toTextArea(this)"><p class="marginTop">V</p></div>
+            <div class="keyboard-key B" id="B" role="button" onclick="toTextArea(this)"><p class="marginTop">B</p></div>
+            <div class="keyboard-key N" id="N" role="button" onclick="toTextArea(this)"><p class="marginTop">N</p></div>
+            <div class="keyboard-key M" id="M" role="button" onclick="toTextArea(this)"><p class="marginTop">M</p></div>
+            <div class="keyboard-key comma" role="button"onclick="toTextArea(this)"><p><span class = "span1"><i class="fas fa-chevron-left"></i></span><span>,</span></p>
+            </div>
+            <div class="keyboard-key fullStop" role="button"onclick="toTextArea(this)"><p><span class = "span1"><i class="fas fa-chevron-right"></i></span><span>.</span></p>
+            </div>
+            <div class="keyboard-key question" role="button"onclick="toTextArea(this)"><p><span class = "span1">?</span><span>/</span></p>
+            </div>
+            <div class="keyboard-key shiftR shift" id="SHIFT" role="button" onclick="capslock()">
+              <p class="marginTop"><i class="fas fa-arrow-up"></i> Shift</p>
+            </div>
+            <div class="keyboard-key controlL" id="CTRL" role="button"><p class="marginTop">CTRL</p></div>
+            <div class="keyboard-key win" id="WIN" role="button"onclick="toTextArea(this)"><p class="marginTop d-block"><i class="fab fa-windows"></i></p></div>
+            <div class="keyboard-key altL" id="ALT" role="button"><p class="marginTop">ALT</p></div>
+            <div class="keyboard-key spacebar" id="SPACE" role="button" onclick="toTextArea(this)"><p class="marginTop">&nbsp</p></div>
+            <div class="keyboard-key altR" id="ALT" role="button"><p class="marginTop">ALT</p></div>
+            <div class="keyboard-key rightClick" id="RIGHCLICK" role="button">
+              <p class="marginTop d-block"><i class="fas fa-align-justify"></i></p>
+            </div>
+            <div class="keyboard-key controlR" id="CTRL" role="button"><p class="marginTop">CTRL</p></div>
+          </div>
+          <div class="keyboard-layout-right">
+            <div class="keyboard-key mute" id="MUTE" role="button">
+              <p class="marginTop d-block"><i class="fas fa-volume-mute"></i></p>
+            </div>
+            <div class="keyboard-key volDown" id="VOLDOWN" role="button">
+              <p class="marginTop d-block"><i class="fas fa-volume-down"></i></p>
+            </div>
+            <div class="keyboard-key volUp" id="VOLUP" role="button">
+              <p class="marginTop d-block"><i class="fas fa-volume-up"></i></p>
+            </div>
+            <div class="keyboard-key prtScr" id="PRTSCR" role="button"><p class="marginTop">Prt Scr</p></div>
+            <div class="keyboard-key scrollLock" id="SCROLL" role="button"><p class="marginTop">Scroll</p></div>
+            <div class="keyboard-key pause" id="PAUSE" role="button"><p class="marginTop">Pause</p></div>
+            <div class="keyboard-key insert" id="INSERT" role="button"><p class="marginTop">Insert</p></div>
+            <div class="keyboard-key Home" id="HOME" role="button"><p class="marginTop">Home</p></div>
+            <div class="keyboard-key pageUp" id="PAGEUP" role="button"><p class="marginTop"><span>Page &nbsp<i class="fas fa-arrow-up"></i></span></p></div>
+            <div class="keyboard-key del" id="DEL" role="button"><p class="marginTop">Delete</p></div>
+            <div class="keyboard-key end" id="END" role="button"><p class="marginTop">End</p></div>
+            <div class="keyboard-key pageDown" id="PAGEDOWN" role="button"><p class="marginTop"><span>Page &nbsp<i class="fas fa-arrow-down"></i></span> </p></div>
+            <div class="keyboard-key upwardA" id="UPWARD" role="button">
+              <p class="marginTop d-block"><i class="fas fa-arrow-up"></i></p>
+            </div>
+            <div class="keyboard-key leftA" id="LEFT" role="button">
+              <p class="marginTop d-block"><i class="fas fa-arrow-left"></i></p>
+            </div>
+            <div class="keyboard-key downA" id="DOWN" role="button">
+              <p class="marginTop d-block"><i class="fas fa-arrow-down"></i></p>
+            </div>
+            <div class="keyboard-key rightA" id="RIGHT" role="button">
+              <p class="marginTop d-block"><i class="fas fa-arrow-right"></i></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+          <div class="main-footer">
+              <h4>&#169 rakesh-creates.in 2021</h>
+                <!-- <button id = "btn">R</button> -->
+          </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
