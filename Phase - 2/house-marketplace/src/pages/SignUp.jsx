@@ -11,6 +11,8 @@ import {
 
 import { db } from "../firebase.config";
 
+import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -46,6 +48,12 @@ const SignUp = () => {
       updateProfile(auth.currentUser, {
         displayName: name,
       }); //updating the display Name
+
+      const formDataCopy = { ...formData }; //creating a copy of form data
+      delete formDataCopy.password; // deleting the password we dont want to store it in database
+      formDataCopy.timeStamp = serverTimestamp(); //updating the timestamp
+
+      await setDoc(doc(db, "users", user.uid), formDataCopy); //update database add formDataCopy object to Users collection
 
       navigate("/"); //redirecting to the homepage
     } catch (error) {
