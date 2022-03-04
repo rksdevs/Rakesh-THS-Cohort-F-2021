@@ -13,6 +13,7 @@ import {
 import { db } from "../firebase.config";
 
 import { setDoc, doc, serverTimestamp } from "firebase/firestore";
+import OAuth from "../components/OAuth";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -64,7 +65,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="pageContainer">
+      <div className="pageContainer" style={{ minHeight: "120vh" }}>
         <header>
           <p className="pageHeader">Welcome Back</p>
         </header>
@@ -117,7 +118,7 @@ const SignUp = () => {
           </div>
         </form>
 
-        {/* Google OAuth */}
+        <OAuth />
 
         <Link to="/sign-in" className="registerLink">
           Sign In Instead
