@@ -1,20 +1,25 @@
-# This is Feedback app which is primarily a frontend app but also has a fake backend server with a database served by Json-server NPM. (https://github-finder-seven-green.vercel.app/)
+# Github Finder App
 
-## Features of the Feedback App:
-    1. Modern design
-    2. Has a mock backend and a database - used Json-server NPM
-    3. One can add, update, delete Feedback
-    4. Components based designed
-    5. Both frontend and mock backend are run simultaneously using Concurrently NPM
-    6. Deployed at vercel
+## This is a React Frontend Project, designed using CSS Tailwind v2 & Daisy UI, to find github profiles. (https://github-finder-seven-green.vercel.app/)
 
-## React hooks & components:
-    1. This is designed using Functional components
-    2. Hooks used: useState, useEffect, useContext, context API
+## Features:
+    1. This app is designed from scratch using React & CSS Tailwind & Daisy UI 
+    2. This app interacts with github API - to help find github profiles, repos, followers etc
+    3. This is frontend application 
+    4. Fully responsive design
+    5. Deployed at Vercel
 
-## Node Modules Used:
-    1. Json-server
-    2. React icons
+## React Hooks & Components:
+    1. This application is based on React's Functional components
+    2. Hooks used: useState, useEffect, useContext, useReducer
+
+## Design: 
+    1. This app is designed using CSS Tailwind v2 & Daisy UI
+    2. This is a fully responsive design, for all types of screensize
+
+## Node Modules used:
+    1. Daisy UI
+    2. Craco
     3. React Router Dom
-    4. UUID
-    5. Concurrently
+    4. Tailwind CSS
+    5. React icons
