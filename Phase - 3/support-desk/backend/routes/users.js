@@ -1,6 +1,11 @@
 var express = require("express");
 var router = express.Router();
-const { registerUser, loginUser } = require("../controllers/userController");
+const {
+  registerUser,
+  loginUser,
+  getMe,
+} = require("../controllers/userController");
+const authMiddleware = require("../middleware/authMiddleware");
 
 /* GET users listing. */
 // router.get("/", function (req, res, next) {
@@ -14,5 +19,9 @@ router.post("/", registerUser);
 //Login user
 
 router.post("/login", loginUser);
+
+//protected route for logged in users
+
+router.get("/me", authMiddleware, getMe);
 
 module.exports = router;
