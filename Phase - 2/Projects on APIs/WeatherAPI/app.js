@@ -2,6 +2,7 @@
 // import axios from "axios";
 // import fs from "fs";
 
+require("dotenv").config();
 const fs = require("fs");
 const readline = require("readline-sync");
 const axios = require("axios");
@@ -48,7 +49,7 @@ const apndFile = (dataToAppend) => {
 
 axios
   .get(
-    `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=6db7b86c779bdc1e4883492d7a81f4a9&units=metric`
+    `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${process.env.WEATHER_API_ID}&units=metric`
   )
   .then((res) => {
     return write("data.json", JSON.stringify(res.data));
