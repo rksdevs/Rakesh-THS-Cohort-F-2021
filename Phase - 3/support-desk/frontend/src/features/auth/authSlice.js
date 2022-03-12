@@ -60,9 +60,6 @@ export const authSlice = createSlice({
       state.isSuccess = false;
       state.message = "";
     },
-    logoutAction: (state) => {
-      state.user = null;
-    },
   },
   extraReducers: (builder) => {
     builder
