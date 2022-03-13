@@ -83,6 +83,7 @@ const loginUser = async (req, res) => {
         info: "Login successful",
         _id: user._id,
         email: user.email,
+        name: user.name,
         token: generateToken(user._id),
       });
     } else {
