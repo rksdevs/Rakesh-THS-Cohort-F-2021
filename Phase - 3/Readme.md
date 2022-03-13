@@ -1,0 +1,1 @@
+## Phase 3 - In Phase 3 of the bootcamp, I learnt about Express, Mongo DB, and worked on a full stack project to get hands on experience. Details of the projects can be found in the readme file specific to the folder.
