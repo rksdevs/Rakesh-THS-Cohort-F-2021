@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "NODE_ENV=DEV nodemon ./bin/www",
+    "development": "NODE_ENV=DEV nodemon ./bin/www",
     "prod": "NODE_ENV=PROD node ./bin/www"
   },
   "dependencies": {
