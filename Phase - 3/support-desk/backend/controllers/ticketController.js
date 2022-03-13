@@ -19,7 +19,7 @@ const getTickets = async (req, res) => {
 
     const tickets = await Ticket.find({ user: req.userId });
 
-    res.status(200).json({ tickets });
+    res.status(200).json(tickets);
   } catch (error) {
     return res.status(500).json({ error: [{ msg: "Internal Server Error" }] });
   }
@@ -91,7 +91,7 @@ const getTicket = async (req, res) => {
       return res.status(401).json({ message: "Not Authorized" });
     }
 
-    res.status(200).json({ ticket });
+    res.status(200).json(ticket);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: [{ msg: "Internal Server Error" }] });
