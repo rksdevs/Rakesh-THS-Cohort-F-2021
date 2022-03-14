@@ -16,3 +16,21 @@ npm run client
 npm run server
 ## Both frontend & backend
 npm run dev
+
+# Sample Images
+
+## Login Page
+![image](https://user-images.githubusercontent.com/87842765/158246780-32e37e7d-7b67-4397-b02c-cf4a736bc095.png)
+
+## Home Screen (when logged in)
+![image](https://user-images.githubusercontent.com/87842765/158247186-79202790-785f-467c-af10-ce415f6bc838.png)
+
+## All Tickets Page
+![image](https://user-images.githubusercontent.com/87842765/158248310-aa844ee1-f412-4a7f-872d-30c0424b6062.png)
+
+
+## Selected Ticket Page
+![image](https://user-images.githubusercontent.com/87842765/158248127-299ae61b-5b55-4d49-a153-a9a28f9d8969.png)
+
+
+
