@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getTickets, reset } from "../features/tickets/ticketSlice";
 import Spinner from "../components/Spinner";
@@ -6,7 +6,7 @@ import BackButton from "../components/BackButton";
 import TicketItem from "../components/TicketItem";
 
 const Tickets = () => {
-  const { tickets, isLoading, isError, isSuccess, message } = useSelector(
+  const { tickets, isLoading, isSuccess } = useSelector(
     (state) => state.ticket
   );
 
