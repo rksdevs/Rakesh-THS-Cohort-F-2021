@@ -66,7 +66,7 @@ const Drawer = styled(MuiDrawer, {
 
 const mdTheme = createTheme();
 
-function User() {
+function User(props) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -101,7 +101,7 @@ function User() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              Storage
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -141,7 +141,10 @@ function User() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}></Grid>
+            <Grid container spacing={3}>
+              {/* <ItemContainer /> */}
+              {props.children}
+            </Grid>
             <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>

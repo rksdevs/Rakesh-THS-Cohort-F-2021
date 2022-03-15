@@ -1,5 +1,5 @@
 import { Guest, User } from "../Layouts";
-import { SignIn, SignUp } from "../Views";
+import { SignIn, SignUp, Dashboard } from "../Views";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import { useContext, useEffect } from "react";
@@ -23,7 +23,15 @@ const Routing = () => {
         <Route path="/signup" element={<Guest Child={SignUp} />}></Route>
         <Route
           path="/user/dashboard"
-          element={<PrivateRoute Component={User} />}
+          element={
+            <PrivateRoute
+              Component={() => (
+                <User>
+                  <Dashboard />
+                </User>
+              )}
+            />
+          }
         ></Route>
       </Routes>
     </div>
