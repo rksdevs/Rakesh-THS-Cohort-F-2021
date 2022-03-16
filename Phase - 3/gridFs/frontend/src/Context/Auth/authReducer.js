@@ -3,6 +3,7 @@ import {
   REGISTER_SUCCESS,
   LOGIN_SUCCESS,
   SET_USER,
+  LOGOUT,
 } from "../types";
 export default function authReducer(state, action) {
   const { type, payload } = action;
@@ -29,6 +30,14 @@ export default function authReducer(state, action) {
         token: localStorage.getItem("jwt"),
         user: payload.info,
       };
+    case LOGOUT: {
+      return {
+        ...state,
+        user: {},
+        isAuth: false,
+        token: null,
+      };
+    }
     default:
       return state;
   }

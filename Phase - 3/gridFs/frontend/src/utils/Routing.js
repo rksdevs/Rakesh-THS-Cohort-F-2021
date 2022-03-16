@@ -1,5 +1,5 @@
 import { Guest, User } from "../Layouts";
-import { SignIn, SignUp, Dashboard } from "../Views";
+import { SignIn, SignUp, Dashboard, Upload } from "../Views";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import { useContext, useEffect } from "react";
@@ -14,6 +14,7 @@ const Routing = () => {
       setAuthToken(token);
       validateToken();
     }
+    //eslint-disable-next-line
   }, []);
   return (
     <div>
@@ -28,6 +29,18 @@ const Routing = () => {
               Component={() => (
                 <User>
                   <Dashboard />
+                </User>
+              )}
+            />
+          }
+        ></Route>
+        <Route
+          path="/user/upload"
+          element={
+            <PrivateRoute
+              Component={() => (
+                <User>
+                  <Upload />
                 </User>
               )}
             />

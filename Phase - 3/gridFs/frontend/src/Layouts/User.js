@@ -9,14 +9,14 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import { mainListItems } from "./listItems";
 import { Copyright } from "../Components";
+import { Button } from "@mui/material";
+import authContext from "../Context/Auth/authContext";
 
 const drawerWidth = 240;
 
@@ -67,6 +67,7 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 function User(props) {
+  const { logout } = React.useContext(authContext);
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -103,11 +104,13 @@ function User(props) {
             >
               Storage
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <Button
+              variant="contained"
+              style={{ background: "#fff", color: "#000" }}
+              onClick={logout}
+            >
+              Logout
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -141,9 +144,9 @@ function User(props) {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} style={{ justifyContent: "center" }}>
               {/* <ItemContainer /> */}
-              {props.children}
+              {props?.children}
             </Grid>
             <Copyright sx={{ pt: 4 }} />
           </Container>

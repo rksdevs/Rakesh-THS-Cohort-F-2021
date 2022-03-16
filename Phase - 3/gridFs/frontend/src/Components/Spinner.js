@@ -8,8 +8,9 @@ const useStyles = makeStyles((theme) => ({
     "& > * + *": {
       marginLeft: theme.spacing(2),
     },
-    height: "100vh",
-    width: "100vw",
+    height: "100%",
+    minHeight: "300px",
+    width: "100%",
     alignItems: "center",
     justifyContent: "center",
   },
