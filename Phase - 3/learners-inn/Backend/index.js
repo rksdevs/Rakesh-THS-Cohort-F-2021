@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
-// const keys = require("./config/keys");
+const userRoute = require("./routes/userRoutes");
+const authRoute = require("./routes/authRoutes");
 
 dotenv.config();
 
@@ -26,13 +27,10 @@ app.use(express.json()); //Its a body parser, when we use post request, it is go
 app.use(helmet());
 app.use(morgan("common"));
 
-// app.get("/", (req, res) => {
-//   res.send("Welcome to homepage");
-// });
+//Routes
 
-// app.get("/users", (req, res) => {
-//   res.send("Welcome to users page");
-// });
+app.use("/api/users", userRoute);
+app.use("/api/auth", authRoute);
 
 //Start the server
 app.listen(8800, () => {
