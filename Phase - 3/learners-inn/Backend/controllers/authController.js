@@ -6,7 +6,8 @@ const jwt = require("jsonwebtoken");
 
 const registerUser = async (req, res) => {
   try {
-    const { userName, email, password } = req.body;
+    const { userName, email, password, about, currentCity, nationality } =
+      req.body;
 
     //Validations - checking credentials
     if (!userName || !email || !password) {
@@ -30,6 +31,9 @@ const registerUser = async (req, res) => {
     const user = await new User({
       userName,
       email,
+      about,
+      currentCity,
+      nationality,
       password: hashedPassword,
     });
 
@@ -40,6 +44,8 @@ const registerUser = async (req, res) => {
     return res.status(500).json({ info: "User registration failed", error });
   }
 };
+
+//Login user
 
 const loginUser = async (req, res) => {
   try {
@@ -63,6 +69,28 @@ const loginUser = async (req, res) => {
   }
 };
 
+//Get User
+
+const getMe = async (req, res) => {
+  try {
+    const user = await User.findById(req.userIdFromAuthMiddleware);
+    const userInstance = {
+      userName: user.userName,
+      email: user.email,
+      followers: user.followers,
+      following: user.following,
+      about: user.about,
+      currentCity: user.currentCity,
+      nationality: user.nationality,
+    };
+
+    res.status(200).json(userInstance);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ info: "Something went wrong", error });
+  }
+};
+
 //Generate JWT
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET_DEV, {
@@ -72,4 +100,5 @@ const generateToken = (id) => {
 module.exports = {
   registerUser,
   loginUser,
+  getMe,
 };

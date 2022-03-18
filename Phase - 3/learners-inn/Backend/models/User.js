@@ -39,6 +39,18 @@ const userSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    about: {
+      type: String,
+      max: 100,
+    },
+    currentCity: {
+      type: String,
+      max: 50,
+    },
+    nationality: {
+      type: String,
+      max: 50,
+    },
   },
   {
     timestamps: true,
