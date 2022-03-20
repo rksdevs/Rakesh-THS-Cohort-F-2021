@@ -70,38 +70,52 @@ const deleteUser = async (req, res) => {
 //Follow user
 
 const followUser = async (req, res) => {
-  if (req.body.userId !== req.params.id) {
-    const userToFollow = await User.findById(req.params.id);
-    const currentUser = await User.findById(req.body.userId);
+  try {
+    if (req.body.userId !== req.params.id) {
+      const userToFollow = await User.findById(req.params.id);
+      const currentUser = await User.findById(req.body.userId);
 
-    if (!userToFollow.followers.includes(req.body.userId)) {
-      await userToFollow.updateOne({ $push: { followers: req.body.userId } });
-      await currentUser.updateOne({ $push: { following: req.params.id } });
-      res.status(200).json({ info: "Following: " + userToFollow.userName });
+      if (!userToFollow.followers.includes(req.body.userId)) {
+        await userToFollow.updateOne({ $push: { followers: req.body.userId } });
+        await currentUser.updateOne({ $push: { following: req.params.id } });
+        res.status(200).json({ info: "Following: " + userToFollow.userName });
+      } else {
+        return res.status(403).json({ info: "You already follow this user" });
+      }
     } else {
-      return res.status(403).json({ info: "You already follow this user" });
+      return res.status(403).json({ info: "You can't follow yourself" });
     }
-  } else {
-    return res.status(403).json({ info: "You can't follow yourself" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ info: "Internal Server Error", error });
   }
 };
 
 //Unfollow a user
 
 const unfollowUser = async (req, res) => {
-  if (req.body.userId !== req.params.id) {
-    const userToUnfollow = await User.findById(req.params.id);
-    const currentUser = await User.findById(req.body.userId);
+  try {
+    if (req.body.userId !== req.params.id) {
+      const userToUnfollow = await User.findById(req.params.id);
+      const currentUser = await User.findById(req.body.userId);
 
-    if (userToUnfollow.followers.includes(req.body.userId)) {
-      await userToUnfollow.updateOne({ $pull: { followers: req.body.userId } });
-      await currentUser.updateOne({ $pull: { following: req.params.id } });
-      res.status(200).json({ info: "Unfollowed: " + userToUnfollow.userName });
+      if (userToUnfollow.followers.includes(req.body.userId)) {
+        await userToUnfollow.updateOne({
+          $pull: { followers: req.body.userId },
+        });
+        await currentUser.updateOne({ $pull: { following: req.params.id } });
+        res
+          .status(200)
+          .json({ info: "Unfollowed: " + userToUnfollow.userName });
+      } else {
+        return res.status(403).json({ info: "You don't follow this user" });
+      }
     } else {
-      return res.status(403).json({ info: "You don't follow this user" });
+      return res.status(403).json({ info: "You can't unfollow yourself" });
     }
-  } else {
-    return res.status(403).json({ info: "You can't unfollow yourself" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ info: "Internal Server Error", error });
   }
 };
 
