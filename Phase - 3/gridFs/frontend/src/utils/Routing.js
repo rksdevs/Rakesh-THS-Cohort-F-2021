@@ -5,6 +5,8 @@ import PrivateRoute from "./PrivateRoute";
 import { useContext, useEffect } from "react";
 import authContext from "../Context/Auth/authContext";
 import setAuthToken from "./setAuthToken";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Routing = () => {
   const { validateToken } = useContext(authContext);
@@ -47,6 +49,7 @@ const Routing = () => {
           }
         ></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 };

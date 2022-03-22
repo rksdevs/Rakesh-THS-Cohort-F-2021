@@ -2,6 +2,7 @@ import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { Button } from "@mui/material";
+import { toast } from "react-toastify";
 
 const Upload = () => {
   const [selectedFile, setSelectedFile] = useState();
@@ -18,7 +19,8 @@ const Upload = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log("Success");
+      // console.log("Success");
+      toast.success("Upload success!");
     } catch (error) {
       console.log(error);
     }
