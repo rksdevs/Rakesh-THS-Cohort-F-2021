@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const PostModel = require("../models/Post");
 const {
   createPost,
   updatePost,
@@ -12,21 +11,21 @@ const {
 const authMiddleware = require("../middleware/authMiddleware");
 
 //Create a post
-router.post("/", authMiddleware, createPost);
+router.post("/", createPost);
 
 //Update a post
-router.put("/:id", authMiddleware, updatePost);
+router.put("/:id", updatePost);
 
 //Delete a post
-router.delete("/:id", authMiddleware, deletePost);
+router.delete("/:id", deletePost);
 
 //Like/dislike a post
-router.put("/:id/like", authMiddleware, likeDislikePost);
+router.put("/:id/like", likeDislikePost);
 
 //Get one Post
-router.get("/:id", authMiddleware, getOnePost);
+router.get("/:id", getOnePost);
 
 //get timeline posts
-router.get("/timeline/:userId", authMiddleware, getTimelinePosts);
+router.get("/timeline/:userId", getTimelinePosts);
 
 module.exports = router;
