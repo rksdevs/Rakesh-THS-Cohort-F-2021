@@ -2,58 +2,58 @@ import { useEffect, useState } from "react";
 import PortfolioList from "../portfolioList/PortfolioList";
 import "./portfolio.scss";
 import {
-  featuredPortfolio,
-  webPortfolio,
-  mobilePortfolio,
-  designPortfolio,
-  contentPortfolio,
+  latestPortfolio,
+  fullstackPortfolio,
+  frontendPortfolio,
+  backendPortfolio,
+  cliPortfolio,
 } from "../../data";
 
 export default function Portfolio() {
-  const [selected, setSelected] = useState("featured");
+  const [selected, setSelected] = useState("latest");
   const [data, setData] = useState([]);
   const list = [
     {
-      id: "featured",
-      title: "Featured",
+      id: "latest",
+      title: "Latest",
     },
     {
-      id: "web",
-      title: "Web App",
+      id: "fullstack",
+      title: "Fullstack Apps",
     },
     {
-      id: "mobile",
-      title: "Mobile App",
+      id: "frontend",
+      title: "Frontend Apps",
     },
     {
-      id: "design",
-      title: "Design",
+      id: "backend",
+      title: "Backend Codes",
     },
     {
-      id: "content",
-      title: "Content",
+      id: "CLI",
+      title: "CLI Codes",
     },
   ];
 
   useEffect(() => {
     switch (selected) {
-      case "featured":
-        setData(featuredPortfolio);
+      case "latest":
+        setData(latestPortfolio);
         break;
-      case "web":
-        setData(webPortfolio);
+      case "fullstack":
+        setData(fullstackPortfolio);
         break;
-      case "mobile":
-        setData(mobilePortfolio);
+      case "frontend":
+        setData(frontendPortfolio);
         break;
-      case "design":
-        setData(designPortfolio);
+      case "backend":
+        setData(backendPortfolio);
         break;
-      case "content":
-        setData(contentPortfolio);
+      case "CLI":
+        setData(cliPortfolio);
         break;
       default:
-        setData(featuredPortfolio);
+        setData(latestPortfolio);
     }
   }, [selected]);
 
@@ -76,6 +76,10 @@ export default function Portfolio() {
           <div className="item" key={d.id}>
             <img src={d.img} alt="" />
             <h3>{d.title}</h3>
+            <div className="item-contents">
+              <p style={{ marginRight: "10px" }}>Git Url</p>
+              <p>Website</p>
+            </div>
           </div>
         ))}
       </div>

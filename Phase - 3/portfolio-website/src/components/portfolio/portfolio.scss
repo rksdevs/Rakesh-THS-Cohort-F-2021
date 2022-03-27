@@ -51,6 +51,7 @@
       position: relative;
       transition: all 0.5s ease;
       cursor: pointer;
+      flex-direction: column;
 
       @include mobile {
         width: 130px;
@@ -60,6 +61,15 @@
       h3 {
         position: absolute;
         font-size: 20px;
+      }
+
+      .item-contents {
+        display: flex;
+        justify-content: space-evenly;
+        position: absolute;
+        font-size: 20px;
+        bottom: 5px;
+        text-decoration: underline;
       }
 
       img {
