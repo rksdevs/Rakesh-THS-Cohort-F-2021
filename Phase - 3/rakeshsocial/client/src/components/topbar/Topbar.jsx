@@ -1,20 +1,23 @@
 import "./topbar.css";
 import { Search, Person, Chat, Notifications } from "@material-ui/icons";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import noAvatar from "../pageAssets/noAvatar.png";
+import { logoutCall } from "../../apiCalls";
 
 export default function Topbar() {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+  const handleClick = () => {
+    // e.preventDefault();
+    logoutCall(dispatch);
 
-  const onLogout = (e) => {
-    e.preventDefault();
-    localStorage.removeItem("user");
+    // localStorage.removeItem("user");
     // window.location.reload();
   };
 
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -52,20 +55,14 @@ export default function Topbar() {
         </div>
         <Link to={`/profile/${user.username}`}>
           <img
-            src={
-              user.profilePicture
-                ? PF + user.profilePicture
-                : PF + "person/noAvatar.png"
-            }
+            src={user.profilePicture ? user.profilePicture : noAvatar}
             alt=""
             className="topbarImg"
           />
         </Link>
-        <div className="topbarIconItem" onClick={onLogout}>
-          <Link to="/login">
-            <ExitToAppIcon />
-          </Link>
-        </div>
+        <span className="topbarLink" onClick={handleClick}>
+          Sign out
+        </span>
       </div>
     </div>
   );

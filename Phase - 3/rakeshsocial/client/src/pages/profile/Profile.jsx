@@ -6,9 +6,11 @@ import Rightbar from "../../components/rightbar/Rightbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import noAvatar from "../../components/pageAssets/noAvatar.png";
+import noCover from "../../components/pageAssets/noCover.png";
 
 export default function Profile() {
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const username = useParams().username;
 
@@ -30,20 +32,12 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={
-                  user.coverPicture
-                    ? PF + user.coverPicture
-                    : PF + "person/noCover.png"
-                }
+                src={user.coverPicture ? user.coverPicture : noCover}
                 alt=""
               />
               <img
                 className="profileUserImg"
-                src={
-                  user.profilePicture
-                    ? PF + user.profilePicture
-                    : PF + "person/noAvatar.png"
-                }
+                src={user.profilePicture ? user.profilePicture : noAvatar}
                 alt=""
               />
             </div>
@@ -53,7 +47,7 @@ export default function Profile() {
             </div>
           </div>
           <div className="profileRightBottom">
-            <Feed username={username} />
+            <Feed />
             <Rightbar user={user} />
           </div>
         </div>

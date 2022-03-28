@@ -6,12 +6,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@material-ui/icons";
+import noAvatar from "../pageAssets/noAvatar.png";
 
 export default function Rightbar({ user }) {
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [friends, setFriends] = useState([]);
-  const { user: currentUser, dispatch } = useContext(AuthContext);
+
   const [followed, setFollowed] = useState(false);
+  const { user: currentUser, dispatch } = useContext(AuthContext);
 
   // useEffect(() => {
   //   setFollowed(currentUser.following.includes(user?.id));
@@ -20,14 +22,14 @@ export default function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("/users/friends/" + user._id);
+        const friendList = await axios.get("/users/friends/" + currentUser._id);
         setFriends(friendList.data);
       } catch (err) {
         console.log(err);
       }
     };
     getFriends();
-  }, [user]);
+  }, [user, currentUser._id]);
 
   const handleClick = async () => {
     try {
@@ -102,14 +104,11 @@ export default function Rightbar({ user }) {
             <Link
               to={"/profile/" + friend.username}
               style={{ textDecoration: "none" }}
+              key={friend._id}
             >
               <div className="rightbarFollowing">
                 <img
-                  src={
-                    friend.profilePicture
-                      ? PF + friend.profilePicture
-                      : PF + "person/noAvatar.png"
-                  }
+                  src={friend.profilePicture ? friend.profilePicture : noAvatar}
                   alt=""
                   className="rightbarFollowingImg"
                 />

@@ -5,6 +5,7 @@ import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import noAvatar from "../pageAssets/noAvatar.png";
 
 export default function Post({ post }) {
   const [like, setLike] = useState(post.likes.length);
@@ -40,11 +41,7 @@ export default function Post({ post }) {
             <Link to={`/profile/${user.username}`}>
               <img
                 className="postProfileImg"
-                src={
-                  user.profilePicture
-                    ? PF + user.profilePicture
-                    : PF + "person/noAvatar.png"
-                }
+                src={user.profilePicture ? user.profilePicture : noAvatar}
                 alt=""
               />
             </Link>

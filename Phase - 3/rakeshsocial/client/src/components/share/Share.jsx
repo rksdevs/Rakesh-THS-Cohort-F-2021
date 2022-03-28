@@ -9,10 +9,11 @@ import {
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import noAvatar from "../pageAssets/noAvatar.png";
 
 export default function Share() {
   const { user } = useContext(AuthContext);
-  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const desc = useRef();
   const [file, setFile] = useState(null);
 
@@ -45,11 +46,7 @@ export default function Share() {
         <div className="shareTop">
           <img
             className="shareProfileImg"
-            src={
-              user.profilePicture
-                ? PF + user.profilePicture
-                : PF + "person/noAvatar.png"
-            }
+            src={user.profilePicture ? user.profilePicture : noAvatar}
             alt=""
           />
           <input
