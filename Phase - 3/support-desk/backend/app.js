@@ -20,9 +20,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
+// app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/tickets", ticketRouter);
+
+//Server Frontend
+if (process.env.NODE_ENV === "production") {
+  //Set Build Folder as static
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(__dirname, "../", "frontend", "build", "index.html")
+  );
+} else {
+  app.use("/", indexRouter);
+}
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
