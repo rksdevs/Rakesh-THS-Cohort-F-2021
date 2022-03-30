@@ -25,7 +25,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/tickets", ticketRouter);
 
 //Server Frontend
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "PROD") {
   //Set Build Folder as static
   app.use(express.static(path.join(__dirname, "../frontend/build")));
 
