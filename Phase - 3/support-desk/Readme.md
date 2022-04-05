@@ -1,5 +1,5 @@
 # Support Desk System
-An fullstack application built using MERN stack - where an user can register/login, create a helpdesk ticket, add notes and view its status.
+An fullstack application built using MERN stack - where an user can register/login, create a helpdesk ticket, add notes and view its status. Link : https://supportdeskv2.herokuapp.com/
 
 ##Features
 1. Simple design
