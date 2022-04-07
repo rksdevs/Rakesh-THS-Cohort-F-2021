@@ -13,7 +13,7 @@ import noAvatar from "../pageAssets/noAvatar.png";
 
 export default function Share() {
   const { user } = useContext(AuthContext);
-  // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const desc = useRef();
   const [file, setFile] = useState(null);
 
@@ -25,6 +25,7 @@ export default function Share() {
     };
     if (file) {
       const data = new FormData();
+      // const fileName = file.name;
       const fileName = Date.now() + file.name;
       data.append("name", fileName);
       data.append("file", file);
@@ -46,7 +47,11 @@ export default function Share() {
         <div className="shareTop">
           <img
             className="shareProfileImg"
-            src={user.profilePicture ? user.profilePicture : noAvatar}
+            src={
+              user.profilePicture
+                ? user.profilePicture
+                : PF + "person/noAvatar.png"
+            }
             alt=""
           />
           <input

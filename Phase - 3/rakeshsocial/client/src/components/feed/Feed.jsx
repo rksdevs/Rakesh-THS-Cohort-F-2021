@@ -23,6 +23,8 @@ export default function Feed({ username }) {
     fetchPosts();
   }, [username, user._id]);
 
+  if (posts === []) return null;
+
   return (
     <div className="feed">
       <div className="feedWrapper">

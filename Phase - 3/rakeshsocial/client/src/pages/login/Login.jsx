@@ -46,7 +46,7 @@ export default function Login() {
             />
             <button className="loginButton" type="submit" disabled={isFetching}>
               {isFetching ? (
-                <CircularProgress color="white" size="20px" />
+                <CircularProgress color="inherit" size="20px" />
               ) : (
                 "Log In"
               )}
@@ -55,7 +55,7 @@ export default function Login() {
             <Link to="/register" style={{ textAlign: "center" }}>
               <button className="loginRegisterButton">
                 {isFetching ? (
-                  <CircularProgress color="white" size="20px" />
+                  <CircularProgress color="inherit" size="20px" />
                 ) : (
                   "Create a New Account"
                 )}
