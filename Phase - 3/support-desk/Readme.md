@@ -1,5 +1,5 @@
 # Support Desk System
-An fullstack application built using MERN stack - where an user can register/login, create a helpdesk ticket, add notes and view its status.
+An fullstack application built using MERN stack - where an user can register/login, create a helpdesk ticket, add notes and view its status. Link : https://supportdeskv2.herokuapp.com/
 
 ##Features
 1. Simple design
@@ -33,4 +33,4 @@ npm run dev
 ![image](https://user-images.githubusercontent.com/87842765/158248127-299ae61b-5b55-4d49-a153-a9a28f9d8969.png)
 
 
-
+##Note: Nodemon might not appear in dependancies - as I've installed it globally on my system
