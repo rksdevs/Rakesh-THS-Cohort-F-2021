@@ -1,1 +1,0 @@
-Phase 1 - In Phase 1 of the bootcamp, I learnt about Command Line Inputs, I've worked on a few projects to get hands on experience of CLI. I learnt about algorithms, printing patterns, OOPS concept, & Data structures. Details below:
