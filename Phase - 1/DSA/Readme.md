@@ -1,7 +1,5 @@
 # DSA Practice Questions & Its Solutions by myself:
 
-## In this file - I've quoted almost all the DSA problems which I've worked and solved.
-
 1. Two-Sum
 2. Chunk
 3. Fizzbuzz
