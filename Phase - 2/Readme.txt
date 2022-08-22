@@ -1,1 +1,0 @@
-Phase 2 - In Phase 2 of the bootcamp, I learnt about DOM, interacting with APIs, & React. I've worked on a few projects to gain more insight of the same. Details of the projects can be found in the readme file specific to the folder.
