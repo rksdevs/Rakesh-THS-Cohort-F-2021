@@ -31,12 +31,12 @@ function ImageSection() {
             <p>Service</p>
           </div>
           <div className="info">
-            <p>: Lorem Ipsum</p>
-            <p>: 36</p>
-            <p>: Spainsh </p>
-            <p>: Spanish, French, English </p>
-            <p>: London, United Kingdom</p>
-            <p>: Freelance</p>
+            <p>: Rakesh Kumar Sahu</p>
+            <p>: 31</p>
+            <p>: Indian </p>
+            <p>: English, Hindi, Odia </p>
+            <p>: Hyderabad, India</p>
+            <p>: Freelance Web Developer, Full-time Web Developer</p>
           </div>
         </div>
         <PrimaryButton title={"Download Cv"} />
