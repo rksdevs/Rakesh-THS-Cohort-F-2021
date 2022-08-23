@@ -20,7 +20,7 @@ export default function Feed({ username }) {
           return new Date(p2.createdAt) - new Date(p1.createdAt);
         })
       );
-      console.log(res.data);
+      // console.log(res.data);
     };
     fetchPosts();
   }, [username, user._id]);
