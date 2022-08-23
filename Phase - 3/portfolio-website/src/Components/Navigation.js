@@ -31,11 +31,6 @@ function Navigation() {
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/blogs" activeClassName="active-class" exact>
-            Blogs
-          </NavLink>
-        </li>
-        <li className="nav-item">
           <NavLink to="/contact" activeClassName="active-class" exact>
             Contact
           </NavLink>
@@ -43,7 +38,7 @@ function Navigation() {
       </ul>
       <footer className="footer">
         <p>
-          @2021 <b>Lorem Ipsum</b>
+          @2022 <b>Rakesh Sahu</b>
         </p>
       </footer>
     </NavigationStyled>
