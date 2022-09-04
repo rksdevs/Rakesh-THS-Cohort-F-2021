@@ -8,6 +8,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import noAvatar from "../../components/pageAssets/noAvatar.png";
 import noCover from "../../components/pageAssets/noCover.png";
+import Topbar2 from "../../components/topbar/Topbar2";
 
 export default function Profile() {
   // const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -24,7 +25,7 @@ export default function Profile() {
 
   return (
     <>
-      <Topbar />
+      <Topbar2 />
       <div className="profile">
         <Sidebar />
         <div className="profileRight">

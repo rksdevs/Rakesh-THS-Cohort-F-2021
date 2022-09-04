@@ -1,4 +1,4 @@
-import Topbar from "../../components/topbar/Topbar";
+import Topbar2 from "../../components/topbar/Topbar2";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
@@ -15,7 +15,7 @@ export default function Home() {
   } else {
     return (
       <>
-        <Topbar />
+        <Topbar2 />
         <div className="homeContainer">
           <Sidebar />
           <Feed username={user.username} />
