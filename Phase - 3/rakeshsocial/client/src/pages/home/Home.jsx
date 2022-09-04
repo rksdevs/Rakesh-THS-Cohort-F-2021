@@ -15,7 +15,7 @@ export default function Home() {
   } else {
     return (
       <>
-        <Topbar2 />
+        <Topbar2 user={user} />
         <div className="homeContainer">
           <Sidebar />
           <Feed username={user.username} />

@@ -84,8 +84,8 @@ const StyledMenuItemSpan = styled.span`
   padding: 1em;
 `;
 
-export default function Topbar2() {
-  const { user, dispatch } = useContext(AuthContext);
+export default function Topbar2({ user }) {
+  const { dispatch } = useContext(AuthContext);
   const handleLogout = () => {
     // e.preventDefault();
     logoutCall(dispatch);
@@ -144,7 +144,7 @@ export default function Topbar2() {
             <IconButton>
               <Avatar
                 alt="Remy Sharp"
-                src={user.profilePicture ? user.profilePicture : noAvatar}
+                src={user?.profilePicture ? user.profilePicture : noAvatar}
               />
             </IconButton>{" "}
             <StyledMenuItemSpan>View Profile</StyledMenuItemSpan>
