@@ -6,6 +6,20 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const Logo = styled.div`
+  color: white;
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:visited {
+      text-decoration: none;
+    }
+  }
+`;
 
 const Navbar = () => {
   return (
@@ -22,7 +36,9 @@ const Navbar = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            <Logo>
+              <Link to="/">BookMyRoom</Link>
+            </Logo>
           </Typography>
           <Button color="inherit">Login</Button>
           <Button color="inherit">Register</Button>

@@ -12,6 +12,7 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const HeaderMain = styled.div`
   background-color: #16213e;
@@ -24,7 +25,7 @@ const HeaderContainer = styled.div`
   width: 100%;
   max-width: 1024px;
   margin: ${(props) =>
-    props.type == "list" ? "20px 0px 0px 0px" : "20px 0px 100px 0px"};
+    props.type === "list" ? "20px 0px 0px 0px" : "20px 0px 100px 0px"};
 `;
 const HeaderList = styled.div`
   display: flex;
@@ -109,6 +110,7 @@ const HeaderSearchOptions = styled.div`
   -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
   padding: 5px;
+  z-index: 2;
 `;
 const HeaderSearchOptionItem = styled.div`
   width: 200px;
@@ -150,6 +152,8 @@ const HeaderSearchOptionButton = styled.button`
 `;
 
 const Header = ({ type }) => {
+  const navigate = useNavigate();
+  const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -174,6 +178,10 @@ const Header = ({ type }) => {
           operation === "i" ? roomOptions[name] + 1 : roomOptions[name] - 1,
       };
     });
+  };
+
+  const handleSearch = (e) => {
+    navigate("/hotellist", { state: { destination, date, roomOptions } });
   };
 
   return (
@@ -219,6 +227,7 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Where are you going?"
                   className="headerSearchInput"
+                  onChange={(e) => setDestination(e.target.value)}
                 />
               </HeaderSearchItem>
               <HeaderSearchItem onClick={() => setOpenDate(!openDate)}>
@@ -236,6 +245,7 @@ const Header = ({ type }) => {
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                     className="date"
+                    minDate={new Date()}
                   />
                 )}
               </HeaderSearchItem>
@@ -308,7 +318,9 @@ const Header = ({ type }) => {
                   </HeaderSearchOptions>
                 )}
               </HeaderSearchItem>
-              <HeaderSearchButton>Search</HeaderSearchButton>
+              <HeaderSearchButton onClick={handleSearch}>
+                Search
+              </HeaderSearchButton>
             </HeaderSearch>
           </>
         )}
