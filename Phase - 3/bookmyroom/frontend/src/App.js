@@ -3,7 +3,7 @@ import "./App.css";
 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
-import Hotel from "./pages/Hotel";
+import Hotel from "./pages/hotel/Hotel";
 import HotelList from "./pages/HotelList";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
