@@ -10,4 +10,3 @@ const connectToDb = async () => {
 };
 
 export default connectToDb;
-// module.exports = connectToDb;
