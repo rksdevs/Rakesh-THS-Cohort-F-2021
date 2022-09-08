@@ -99,7 +99,7 @@ const ListSearchButton = styled.button`
 const HotelList = () => {
   const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
-  const [date, setDate] = useState(location.state.date);
+  const [dates, setDates] = useState(location.state.dates);
   const [openDate, setOpenDate] = useState(false);
   const [roomOptions, setRoomOptions] = useState(location.state.roomOptions);
   const [min, setMin] = useState(undefined);
@@ -129,16 +129,16 @@ const HotelList = () => {
               <ListLabel>Check-in Date</ListLabel>
               {/* <ListInput type="text" /> */}
               <ListItemSpan onClick={() => setOpenDate(!openDate)}>
-                {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-                  date[0].endDate,
+                {`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+                  dates[0].endDate,
                   "MM/dd/yyyy"
                 )}`}
               </ListItemSpan>
               {openDate && (
                 <DateRange
-                  onChange={(item) => setDate([item.selection])}
+                  onChange={(item) => setDates([item.selection])}
                   minDate={new Date()}
-                  ranges={date}
+                  ranges={dates}
                 />
               )}
             </ListItem>

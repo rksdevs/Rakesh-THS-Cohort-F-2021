@@ -7,17 +7,30 @@ import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import CancelIcon from "@mui/icons-material/Cancel";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from "../../components/hooks/useFetch";
+import { SearchContext } from "../../context/SearchContext";
 
 const Hotel = () => {
+  const { dates, roomOptions } = useContext(SearchContext);
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const pathId = location.pathname.split("/")[2];
 
   const { data, loading, error, reFetch } = useFetch(`/hotels/find/${pathId}`);
+
+  // console.log(dates);
+
+  const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
+  function dayDifference(date1, date2) {
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(timeDiff / MILLISECONDS_PER_DAY);
+    return diffDays;
+  }
+
+  const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
   const handleOpen = (i) => {
     setSlideNumber(i);
@@ -99,15 +112,17 @@ const Hotel = () => {
                   <p className="hotelDesc">{data.desc}</p>
                 </div>
                 <div className="hotelDetailsPrice">
-                  <h1>Perfect for a 9-night stay!</h1>
+                  <h1>Perfect for a {days}-night stay!</h1>
                   <span>
                     Located in the real heart of Krakow, this property has an
                     excellent location score of 9.8!
                   </span>
                   <h2>
-                    <b>$945</b> (9 nights)
+                    <b>${days * data.cheapestPrice * roomOptions.room}</b> (
+                    {days}
+                    nights)
                   </h2>
-                  <button>Reserve or Book Now!</button>
+                  <button>Reserve or Book Now!</button>({days} nights)
                 </div>
               </div>
             </div>

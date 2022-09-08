@@ -8,6 +8,8 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 const Logo = styled.div`
   color: white;
@@ -22,6 +24,7 @@ const Logo = styled.div`
 `;
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -40,8 +43,28 @@ const Navbar = () => {
               <Link to="/">BookMyRoom</Link>
             </Logo>
           </Typography>
-          <Button color="inherit">Login</Button>
-          <Button color="inherit">Register</Button>
+          {user ? (
+            user.userName
+          ) : (
+            <>
+              <Button color="inherit">
+                <Link
+                  to="/login"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  Login
+                </Link>
+              </Button>
+              {/* <Button color="inherit">
+                <Link
+                  to="/register"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  Register
+                </Link>
+              </Button> */}
+            </>
+          )}
         </Toolbar>
       </AppBar>
     </Box>

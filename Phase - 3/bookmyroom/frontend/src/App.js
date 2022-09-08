@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Hotel from "./pages/hotel/Hotel";
 import HotelList from "./pages/HotelList";
+import Login from "./pages/login/Login";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hotellist" element={<HotelList />} />
           <Route path="/hotel/:id" element={<Hotel />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
