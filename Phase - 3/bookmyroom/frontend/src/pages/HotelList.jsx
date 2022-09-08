@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { DateRange } from "react-date-range";
 import SearchItem from "../components/searchItem/SearchItem";
+import useFetch from "../components/hooks/useFetch";
 
 const ListContainer = styled.div`
   display: flex;
@@ -101,6 +102,16 @@ const HotelList = () => {
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [roomOptions, setRoomOptions] = useState(location.state.roomOptions);
+  const [min, setMin] = useState(undefined);
+  const [max, setMax] = useState(undefined);
+
+  const { data, loading, error, reFetch } = useFetch(
+    `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
+  );
+
+  const handleClick = () => {
+    reFetch();
+  };
 
   return (
     <>
@@ -138,13 +149,19 @@ const HotelList = () => {
                   <ListItemSpan>
                     Min price &nbsp; <small> per night</small>
                   </ListItemSpan>
-                  <ListOptionInput type="number" />
+                  <ListOptionInput
+                    type="number"
+                    onChange={(e) => setMin(e.target.value)}
+                  />
                 </ListItemOption>
                 <ListItemOption>
                   <ListItemSpan>
                     Max price &nbsp; <small> per night</small>
                   </ListItemSpan>
-                  <ListOptionInput type="number" />
+                  <ListOptionInput
+                    type="number"
+                    onChange={(e) => setMax(e.target.value)}
+                  />
                 </ListItemOption>
                 <ListItemOption>
                   <ListItemSpan>Adults</ListItemSpan>
@@ -172,16 +189,18 @@ const HotelList = () => {
                 </ListItemOption>
               </ListItemContainer>
             </ListAllItems>
-            <ListSearchButton>Search</ListSearchButton>
+            <ListSearchButton onClick={handleClick}>Search</ListSearchButton>
           </ListSearch>
           <ListResult>
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+            {loading ? (
+              "Loading please wait!"
+            ) : (
+              <>
+                {data.map((item) => (
+                  <SearchItem key={item._id} item={item} />
+                ))}
+              </>
+            )}
           </ListResult>
         </ListWrapper>
       </ListContainer>
@@ -189,3 +208,12 @@ const HotelList = () => {
   );
 };
 export default HotelList;
+
+{
+  /* <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem /> */
+}
