@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useFetch from "./hooks/useFetch";
 
 const FPropertyContainer = styled.div`
   width: 100%;
@@ -16,6 +17,9 @@ const FPItem = styled.div`
   display: flex;
   flex-direction: column;
   color: #f50057;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 5px;
+  border-radius: 10px;
 `;
 
 const FPropertyImg = styled.img`
@@ -41,7 +45,7 @@ const FPRating = styled.div``;
 const FPButton = styled.button`
   background-color: #16213e;
   color: white;
-  padding: 3px;
+  padding: 5px;
   margin-right: 10px;
   font-weight: bold;
   outline: none;
@@ -52,61 +56,78 @@ const FPSpanReview = styled.span`
 `;
 
 const FeaturedProperty = () => {
+  const { data, loading, error } = useFetch("/hotels?featured=true&limit=4");
+  // console.log(data);
   return (
     <FPropertyContainer>
-      <FPItem>
-        <FPropertyImg
-          src="https://t-cf.bstatic.com/xdata/images/hotel/square200/223496641.webp?k=a2395bdb7f1ce5c33815dee6d9d0f825e8cf88d1aac4d7ad2ec288fcbd8bba78&o=&s=1"
-          alt="Hotel Image"
-        />
-        <FPSpanName>Cosmos Lounge</FPSpanName>
-        <FPSpanCity>Hyderabad</FPSpanCity>
-        <FPSpanPrice>Starting from $120</FPSpanPrice>
-        <FPRating>
-          <FPButton>8.9</FPButton>
-          <FPSpanReview>Excellent</FPSpanReview>
-        </FPRating>
-      </FPItem>
-      <FPItem>
-        <FPropertyImg
-          src="https://t-cf.bstatic.com/xdata/images/hotel/square200/223496641.webp?k=a2395bdb7f1ce5c33815dee6d9d0f825e8cf88d1aac4d7ad2ec288fcbd8bba78&o=&s=1"
-          alt="Hotel Image"
-        />
-        <FPSpanName>Cosmos Lounge</FPSpanName>
-        <FPSpanCity>Hyderabad</FPSpanCity>
-        <FPSpanPrice>Starting from $120</FPSpanPrice>
-        <FPRating>
-          <FPButton>8.9</FPButton>
-          <FPSpanReview>Excellent</FPSpanReview>
-        </FPRating>
-      </FPItem>
-      <FPItem>
-        <FPropertyImg
-          src="https://t-cf.bstatic.com/xdata/images/hotel/square200/223496641.webp?k=a2395bdb7f1ce5c33815dee6d9d0f825e8cf88d1aac4d7ad2ec288fcbd8bba78&o=&s=1"
-          alt="Hotel Image"
-        />
-        <FPSpanName>Cosmos Lounge</FPSpanName>
-        <FPSpanCity>Hyderabad</FPSpanCity>
-        <FPSpanPrice>Starting from $120</FPSpanPrice>
-        <FPRating>
-          <FPButton>8.9</FPButton>
-          <FPSpanReview>Excellent</FPSpanReview>
-        </FPRating>
-      </FPItem>
-      <FPItem>
-        <FPropertyImg
-          src="https://t-cf.bstatic.com/xdata/images/hotel/square200/223496641.webp?k=a2395bdb7f1ce5c33815dee6d9d0f825e8cf88d1aac4d7ad2ec288fcbd8bba78&o=&s=1"
-          alt="Hotel Image"
-        />
-        <FPSpanName>Cosmos Lounge</FPSpanName>
-        <FPSpanCity>Hyderabad</FPSpanCity>
-        <FPSpanPrice>Starting from $120</FPSpanPrice>
-        <FPRating>
-          <FPButton>8.9</FPButton>
-          <FPSpanReview>Excellent</FPSpanReview>
-        </FPRating>
-      </FPItem>
+      {loading ? (
+        "Loading please wait"
+      ) : (
+        <>
+          {data.map((item) => (
+            <FPItem key={item?._id}>
+              <FPropertyImg
+                src={
+                  item?.photos[0] ||
+                  "https://t-cf.bstatic.com/xdata/images/hotel/square200/223496641.webp?k=a2395bdb7f1ce5c33815dee6d9d0f825e8cf88d1aac4d7ad2ec288fcbd8bba78&o=&s=1"
+                }
+              />
+              <FPSpanName>{item?.name}</FPSpanName>
+              <FPSpanCity>{item?.city}</FPSpanCity>
+              <FPSpanPrice>Starting from ${item?.cheapestPrice}</FPSpanPrice>
+              {item?.rating && (
+                <FPRating>
+                  <FPButton>{item?.rating}</FPButton>
+                  <FPSpanReview>Excellent</FPSpanReview>
+                </FPRating>
+              )}
+            </FPItem>
+          ))}
+        </>
+      )}
     </FPropertyContainer>
   );
 };
 export default FeaturedProperty;
+
+{
+  /* <FPItem>
+        <FPropertyImg
+          src="https://t-cf.bstatic.com/xdata/images/hotel/square200/223496641.webp?k=a2395bdb7f1ce5c33815dee6d9d0f825e8cf88d1aac4d7ad2ec288fcbd8bba78&o=&s=1"
+          alt="Hotel Image"
+        />
+        <FPSpanName>Cosmos Lounge</FPSpanName>
+        <FPSpanCity>Hyderabad</FPSpanCity>
+        <FPSpanPrice>Starting from $120</FPSpanPrice>
+        <FPRating>
+          <FPButton>8.9</FPButton>
+          <FPSpanReview>Excellent</FPSpanReview>
+        </FPRating>
+      </FPItem>
+      <FPItem>
+        <FPropertyImg
+          src="https://t-cf.bstatic.com/xdata/images/hotel/square200/223496641.webp?k=a2395bdb7f1ce5c33815dee6d9d0f825e8cf88d1aac4d7ad2ec288fcbd8bba78&o=&s=1"
+          alt="Hotel Image"
+        />
+        <FPSpanName>Cosmos Lounge</FPSpanName>
+        <FPSpanCity>Hyderabad</FPSpanCity>
+        <FPSpanPrice>Starting from $120</FPSpanPrice>
+        <FPRating>
+          <FPButton>8.9</FPButton>
+          <FPSpanReview>Excellent</FPSpanReview>
+        </FPRating>
+      </FPItem>
+      <FPItem>
+        <FPropertyImg
+          src="https://t-cf.bstatic.com/xdata/images/hotel/square200/223496641.webp?k=a2395bdb7f1ce5c33815dee6d9d0f825e8cf88d1aac4d7ad2ec288fcbd8bba78&o=&s=1"
+          alt="Hotel Image"
+        />
+        <FPSpanName>Cosmos Lounge</FPSpanName>
+        <FPSpanCity>Hyderabad</FPSpanCity>
+        <FPSpanPrice>Starting from $120</FPSpanPrice>
+        <FPRating>
+          <FPButton>8.9</FPButton>
+          <FPSpanReview>Excellent</FPSpanReview>
+        </FPRating>
+      </FPItem> */
+}
