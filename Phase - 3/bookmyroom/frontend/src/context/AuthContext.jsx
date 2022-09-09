@@ -41,7 +41,6 @@ const AuthReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
-  const [tempUser, setTempUser] = useState("");
 
   useEffect(() => {
     // setTempUser(JSON.stringify(state.user));

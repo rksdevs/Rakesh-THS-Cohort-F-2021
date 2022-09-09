@@ -3,10 +3,11 @@ import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { format } from "date-fns";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { DateRange } from "react-date-range";
 import SearchItem from "../components/searchItem/SearchItem";
 import useFetch from "../components/hooks/useFetch";
+import { AuthContext } from "../context/AuthContext";
 
 const ListContainer = styled.div`
   display: flex;
@@ -104,6 +105,7 @@ const HotelList = () => {
   const [roomOptions, setRoomOptions] = useState(location.state.roomOptions);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
+  const { user } = useContext(AuthContext);
 
   const { data, loading, error, reFetch } = useFetch(
     `/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`
@@ -116,7 +118,7 @@ const HotelList = () => {
   return (
     <>
       <Navbar />
-      <Header type="list" />
+      <Header type="list" user={user} />
       <ListContainer>
         <ListWrapper>
           <ListSearch>

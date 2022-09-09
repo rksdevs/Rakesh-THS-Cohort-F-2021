@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
@@ -24,7 +24,14 @@ const Logo = styled.div`
 `;
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    dispatch({ type: "LOGOUT" });
+    navigate("/");
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -44,7 +51,13 @@ const Navbar = () => {
             </Logo>
           </Typography>
           {user ? (
-            user.userName
+            <>
+              {" "}
+              <Button color="inherit">{user.userName}</Button>{" "}
+              <Button color="inherit" onClick={handleLogout}>
+                Logout
+              </Button>
+            </>
           ) : (
             <>
               <Button color="inherit">

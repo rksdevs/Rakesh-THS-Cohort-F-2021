@@ -14,6 +14,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../context/SearchContext";
+import { AuthContext } from "../context/AuthContext";
 
 const HeaderMain = styled.div`
   background-color: #16213e;
@@ -154,6 +155,7 @@ const HeaderSearchOptionButton = styled.button`
 
 const Header = ({ type }) => {
   const { dispatch } = useContext(SearchContext);
+  const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const [destination, setDestination] = useState("");
@@ -191,6 +193,11 @@ const Header = ({ type }) => {
     navigate("/hotellist", { state: { destination, dates, roomOptions } });
   };
 
+  const handleSigninOrRegister = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
+
   return (
     <HeaderMain>
       <HeaderContainer>
@@ -224,9 +231,15 @@ const Header = ({ type }) => {
               Get rewarded for your travels - unlock instant savings of 10% or
               more with a free BookMyRoom account
             </HeaderDesc>
-            <HeaderButton color="secondary" variant="outlined">
-              Signin / Register
-            </HeaderButton>
+            {!user && (
+              <HeaderButton
+                color="secondary"
+                variant="outlined"
+                onClick={handleSigninOrRegister}
+              >
+                Signin / Register
+              </HeaderButton>
+            )}
             <HeaderSearch>
               <HeaderSearchItem>
                 <HotelIcon />

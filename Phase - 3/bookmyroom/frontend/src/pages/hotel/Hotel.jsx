@@ -11,6 +11,8 @@ import { useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useFetch from "../../components/hooks/useFetch";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
+import Reserve from "../../components/reserve/Reserve";
 
 const Hotel = () => {
   const { dates, roomOptions } = useContext(SearchContext);
@@ -18,6 +20,9 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const pathId = location.pathname.split("/")[2];
+  const [modalOpen, setModalOpen] = useState(false);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const { data, loading, error, reFetch } = useFetch(`/hotels/find/${pathId}`);
 
@@ -47,6 +52,11 @@ const Hotel = () => {
     }
 
     setSlideNumber(newSlideNumber);
+  };
+
+  const handleReserve = (e) => {
+    e.preventDefault();
+    user ? setModalOpen(!modalOpen) : navigate("/login");
   };
 
   return (
@@ -81,7 +91,9 @@ const Hotel = () => {
               </div>
             )}
             <div className="hotelWrapper">
-              <button className="bookNow">Reserve or Book Now!</button>
+              <button className="bookNow" onClick={handleReserve}>
+                Reserve or Book Now!
+              </button>
               <h1 className="hotelTitle">{data.name}</h1>
               <div className="hotelAddress">
                 <LocationOnIcon />
@@ -122,7 +134,8 @@ const Hotel = () => {
                     {days}
                     nights)
                   </h2>
-                  <button>Reserve or Book Now!</button>({days} nights)
+                  <button onClick={handleReserve}>Reserve or Book Now!</button>(
+                  {days} nights)
                 </div>
               </div>
             </div>
@@ -131,6 +144,7 @@ const Hotel = () => {
           </div>
         </>
       )}
+      {modalOpen && <Reserve setOpen={setModalOpen} hotelId={pathId} />}
     </div>
   );
 };
