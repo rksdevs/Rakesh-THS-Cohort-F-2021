@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Hotel from "./pages/hotel/Hotel";
 import HotelList from "./pages/HotelList";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/hotellist" element={<HotelList />} />
           <Route path="/hotel/:id" element={<Hotel />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

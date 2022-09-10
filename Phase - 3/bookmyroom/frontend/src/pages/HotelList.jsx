@@ -154,6 +154,7 @@ const HotelList = () => {
                   <ListOptionInput
                     type="number"
                     onChange={(e) => setMin(e.target.value)}
+                    min={1}
                   />
                 </ListItemOption>
                 <ListItemOption>
@@ -163,6 +164,7 @@ const HotelList = () => {
                   <ListOptionInput
                     type="number"
                     onChange={(e) => setMax(e.target.value)}
+                    min={1}
                   />
                 </ListItemOption>
                 <ListItemOption>

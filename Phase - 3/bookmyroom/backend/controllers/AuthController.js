@@ -30,10 +30,7 @@ export const registerUser = async (req, res) => {
 
     await newUser.save();
     const { password, isAdmin, ...otherDetails } = newUser._doc;
-    res.status(200).send({
-      msg: "User registration successful",
-      userInfo: otherDetails,
-    });
+    res.status(200).json({ details: { ...otherDetails }, isAdmin });
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

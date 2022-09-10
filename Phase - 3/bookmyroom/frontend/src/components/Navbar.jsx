@@ -68,14 +68,14 @@ const Navbar = () => {
                   Login
                 </Link>
               </Button>
-              {/* <Button color="inherit">
+              <Button color="inherit">
                 <Link
                   to="/register"
                   style={{ color: "inherit", textDecoration: "none" }}
                 >
                   Register
                 </Link>
-              </Button> */}
+              </Button>
             </>
           )}
         </Toolbar>
