@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 
 //Register User
 export const registerUser = async (req, res) => {
+  console.log;
   try {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
@@ -11,13 +12,20 @@ export const registerUser = async (req, res) => {
     const newUser = new User({
       userName: req.body.username,
       email: req.body.email,
+      country: req.body.country,
+      city: req.body.city,
+      phone: req.body.phone,
+      img: req.body.img,
       password: hash,
     });
 
     //Existing user validation
     const existingUser = await User.findOne({ userName: req.body.username });
     if (existingUser) {
-      return res.status(400).send("User already exists. Please login instead!");
+      return res.status(400).send({
+        msg: "User already exists. Please login instead!",
+        ...req.body,
+      });
     }
 
     await newUser.save();
@@ -34,8 +42,10 @@ export const registerUser = async (req, res) => {
 
 //Login User
 export const login = async (req, res) => {
+  console.log(req.body);
   try {
     const user = await User.findOne({ userName: req.body.username });
+    console.log(user);
 
     //Validation: if user exists
     if (!user) {
@@ -65,7 +75,7 @@ export const login = async (req, res) => {
         httpOnly: true,
       }) //sending the jwt token as cookie with key-access_token, setting configuration to httpOnly which doesnt allow the client to use this cookie
       .status(200)
-      .json(otherDetails); //what is the difference between res.status(200).json({...otherDetails});
+      .json({ details: { ...otherDetails }, isAdmin }); //what is the difference between res.status(200).json({...otherDetails});
   } catch (error) {
     console.log(error);
     res.status(500).json(error);

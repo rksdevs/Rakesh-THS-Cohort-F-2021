@@ -1,19 +1,6 @@
 import User from "../models/User.js";
 
-//Create Hotel
-// export const createHotel = async (req, res) => {
-//   const newHotel = new Hotel(req.body);
 
-//   try {
-//     const savedHotel = await newHotel.save();
-//     res.status(200).json(savedHotel);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json(error);
-//   }
-// };
-
-//Read User - specific
 export const getSpecificUser = async (req, res) => {
   try {
     const userToGet = await User.findById(req.params.id);
