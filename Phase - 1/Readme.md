@@ -6,3 +6,7 @@
 1. Base 64 Converter
 2. Matrix functions
 3. Number System Converter
+
+## Pattern Printing folder has all the pattern printing exersizes that I've worked on
+
+## DSA folder is a progressive folder, where I submit my daily programming practice sessions to resolve various programming challenges.
