@@ -10,38 +10,68 @@ countUnqiueValues([1,1,1,1,2,3,3,4,5,5,5,6,23,23,23,24]) // 8
 
 */
 
-const countUnqiueValues = (sortedArr) => {
-  //if an empty array return 0
-  if (sortedArr === []) {
+// const countUnqiueValues = (sortedArr) => {
+//   //if an empty array return 0
+//   if (sortedArr === []) {
+//     return 0;
+//   }
+//   if (sortedArr.length === 1) {
+//     return 1;
+//   }
+//   let fPointer = 0;
+// //   let countOfUnique = 0;
+//   let resultArr = [];
+
+//   //check if 2 elements are different add the elem to new arr
+
+//   for (fPointer; fPointer < sortedArr.length - 1; fPointer++) {
+//     let sPointer = fPointer + 1;
+
+//     if (sortedArr[fPointer] !== sortedArr[sPointer]) {
+//       resultArr.push(sortedArr[fPointer]);
+
+//       if (fPointer === sortedArr.length - 2) {
+//         resultArr.push(sortedArr[sPointer]);
+//       }
+//     } else {
+//       if (fPointer === sortedArr.length - 2) {
+//         resultArr.push(sortedArr[sPointer]);
+//       }
+//     }
+//     console.log(resultArr);
+//   }
+
+//   return resultArr.length;
+// };
+
+const countUnqiueValues = (arr) => {
+  if (arr === []) {
     return 0;
-  }
-  if (sortedArr.length === 1) {
+  } else if (arr.length === 1) {
     return 1;
   }
-  let fPointer = 0;
-  let countOfUnique = 0;
-  let resultArr = [];
 
-  //check if 2 elements are different add the elem to new arr
+  let startPointer = 0;
 
-  for (fPointer; fPointer < sortedArr.length - 1; fPointer++) {
-    let sPointer = fPointer + 1;
+  //   for(startPointer; startPointer<arr.length; startPointer++) {
 
-    if (sortedArr[fPointer] !== sortedArr[sPointer]) {
-      resultArr.push(sortedArr[fPointer]);
+  //   }
 
-      if (fPointer === sortedArr.length - 2) {
-        resultArr.push(sortedArr[sPointer]);
-      }
+  while (startPointer < arr.length) {
+    let followingPointer = startPointer + 1;
+    //check if 1st p and 2nd p matches
+    if (arr[startPointer] === arr[followingPointer]) {
+      arr.splice(followingPointer, 1);
+      //   followingPointer++;
     } else {
-      if (fPointer === sortedArr.length - 2) {
-        resultArr.push(sortedArr[sPointer]);
-      }
+      startPointer++;
     }
-    console.log(resultArr);
+    console.log(arr);
   }
 
-  return resultArr.length;
+  return arr.length;
 };
 
-console.log(countUnqiueValues([2, 1, 1, 1, 1]));
+console.log(
+  countUnqiueValues([1, 1, 1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 23, 23, 23, 24])
+);
