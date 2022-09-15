@@ -6,4 +6,4 @@ Phase 1 - In Phase 1 of the bootcamp, I learnt about Command Line Inputs, I've w
 
 Phase 2 - In Phase 2 of the bootcamp, I learnt about DOM, interacting with APIs, & React. I've worked on a few projects to gain more insight of the same. Details of the projects can be found in the readme file specific to the folder.
 
-Phase 3 - In Phase 3 of the bootcamp, I learnt about Express, Mongo DB, and worked on a full stack project to get hands on experience. Details of the projects can be found in the readme file specific to the folder.
+Phase 3 - In Phase 3 of the bootcamp, I learnt Nodejs, ExpressJs, MongoDB, and worked on a full stack project to get hands on experience. Details of the projects can be found in the readme file specific to the folder.
