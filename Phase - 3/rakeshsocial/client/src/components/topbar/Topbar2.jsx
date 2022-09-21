@@ -25,6 +25,8 @@ import noAvatar from "../pageAssets/noAvatar.png";
 import styled from "styled-components";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
+
+// import useNavigate
 // import { Icon as NewIcon } from "@iconify/react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faCoffee, faFacebookF } from "@fortawesome/free-solid-svg-icons";
@@ -89,9 +91,6 @@ export default function Topbar2({ user }) {
   const handleLogout = () => {
     // e.preventDefault();
     logoutCall(dispatch);
-
-    // localStorage.removeItem("user");
-    // window.location.reload();
   };
   //   const [anchorEl, setAnchorEl] =
   //     (React.useState < null) | (HTMLElement > null);
