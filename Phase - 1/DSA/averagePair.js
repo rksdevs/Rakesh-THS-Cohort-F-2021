@@ -13,4 +13,24 @@
 // averagePair([-1,0,3,4,5,6], 4.1) // false
 // averagePair([],4) // false
 
-// const
+const averagePair = (arr, avg) => {
+  //   const average = (a, b) => (a + b) / 2;
+  if (arr.length === 0) {
+    return false;
+  }
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left !== right) {
+    if ((arr[left] + arr[right]) / 2 < avg) {
+      left++;
+    } else if ((arr[left] + arr[right]) / 2 > avg) {
+      right--;
+    } else {
+      return true;
+    }
+  }
+  return false;
+};
+
+console.log(averagePair([], 4));
