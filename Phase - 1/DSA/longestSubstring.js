@@ -30,34 +30,31 @@ const longestSubstring = (s) => {
     return 1;
   }
 
-  //brute force
+  //sliding window
 
   let i = 0;
-  let j;
+  let j = 0;
   let subArr = [];
   let maxLen = 0;
 
   while (i < s.length) {
-    for (j = i; j < s.length; j++) {
-      //if subArr doesn't have s[j] then push s[j] else break
-      if (subArr.indexOf(s[j]) < 0) {
-        subArr.push(s[j]);
-      } else {
-        if (maxLen < subArr.length) maxLen = subArr.length;
-        subArr = [];
-        break;
-      }
+    //if no s[i] in subArr push i
+
+    if (subArr.indexOf(s[i]) < 0) {
+      subArr.push(s[i]);
+      i++;
+    } else {
+      maxLen < subArr.length ? (maxLen = subArr.length) : (maxLen = maxLen);
+      j++;
+      subArr.shift();
     }
-    // subArr = [];
-    if (maxLen < subArr.length) maxLen = subArr.length;
-    subArr = [];
-    i++;
   }
+  maxLen < subArr.length ? (maxLen = subArr.length) : (maxLen = maxLen);
 
   return maxLen;
 };
 
-console.log(longestSubstring("pwwkew"));
+console.log(longestSubstring("au"));
 
 //pwwkewlghj
 //abcabcbb
@@ -81,3 +78,38 @@ console.log(longestSubstring("pwwkew"));
 // unique.forEach((element) => {
 //   console.log(element);
 // });
+
+// const longestSubstring = (s) => {
+//   //edge cases
+//   if (s.length === 0 || s === null) {
+//     return 0;
+//   } else if (s.length === 1) {
+//     return 1;
+//   }
+
+//   //brute force
+
+//   let i = 0;
+//   let j;
+//   let subArr = [];
+//   let maxLen = 0;
+
+//   while (i < s.length) {
+//     for (j = i; j < s.length ; j++) {
+//       //if subArr doesn't have s[j] then push s[j] else break
+//       if (subArr.indexOf(s[j]) < 0) {
+//         subArr.push(s[j]);
+//       } else {
+//         if (maxLen < subArr.length) maxLen = subArr.length;
+//         subArr = [];
+//         break;
+//       }
+//     }
+//     // subArr = [];
+//     if (maxLen < subArr.length) maxLen = subArr.length;
+//     subArr = [];
+//     i++;
+//   }
+
+//   return maxLen;
+// };
